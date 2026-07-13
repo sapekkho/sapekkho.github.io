@@ -49,9 +49,7 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <a href="https://github.com/sapekkho/sapekkho/releases/download/v1.1.1/Sapekkho-Setup-1.1.1.exe" download="Sapekkho-Setup-1.1.1.exe" className="btn btn-primary" style={{ padding: '0.6rem 1.2rem', marginLeft: '1rem' }}>
-              Get Started
-            </a>
+
           </div>
         </div>
 
@@ -86,9 +84,7 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
-          <a href="https://github.com/sapekkho/sapekkho/releases/download/v1.1.1/Sapekkho-Setup-1.1.1.exe" download="Sapekkho-Setup-1.1.1.exe" onClick={() => setMobileMenuOpen(false)} className="btn btn-primary" style={{ marginTop: '1rem', fontSize: '1.25rem' }}>
-            Get Started
-          </a>
+
         </div>
       )}
       
