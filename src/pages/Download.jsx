@@ -37,8 +37,8 @@ export default function Download() {
 
         <div style={{ marginTop: '2.5rem' }}>
           <a 
-            href="https://github.com/xomoash/sapekkho/releases/download/v1.0.0/Sapekkho-Setup-1.0.0.exe"
-            download="Sapekkho-Setup-1.0.0.exe"
+            href="https://github.com/sapekkho/sapekkho/releases/download/v1.1.1/Sapekkho-Setup-1.1.1.exe"
+            download="Sapekkho-Setup-1.1.1.exe"
             className="btn btn-primary"
             style={{ padding: '1rem 2.5rem', fontSize: '1.2rem', marginBottom: '1rem' }}
           >
