@@ -65,25 +65,44 @@ export default function Download() {
         </div>
 
         <div style={{ marginTop: '2.5rem' }}>
-          <a
-            href={downloadUrl}
-            download={downloadName}
-            onClick={handleDownloadClick}
-            className="btn btn-primary"
-            style={{ padding: '1rem 2.5rem', fontSize: '1.2rem', marginBottom: '1rem' }}
-          >
-            <DownloadIcon size={24} />
-            {isStarting ? `Starting download in ${countdown}...` : 'Download for Windows'}
-          </a>
-
-          {isStarting && countdown === 0 && (
-            <p style={{ marginTop: '-0.5rem', marginBottom: '1rem', fontSize: '0.95rem', color: 'var(--text-muted)' }}>
-              If the download did not start,{' '}
-              <a href={downloadUrl} download={downloadName} style={{ color: 'var(--accent)', fontWeight: 600 }}>
-                click here
-              </a>
-              .
-            </p>
+          {!isStarting ? (
+            <a
+              href={downloadUrl}
+              download={downloadName}
+              onClick={handleDownloadClick}
+              className="btn btn-primary"
+              style={{ padding: '1rem 2.5rem', fontSize: '1.2rem', marginBottom: '1rem' }}
+            >
+              <DownloadIcon size={24} />
+              Download for Windows
+            </a>
+          ) : (
+            <div
+              style={{
+                display: 'inline-flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '0.65rem',
+                padding: '1rem 1.5rem',
+                marginBottom: '1rem',
+                borderRadius: 'var(--radius-sm)',
+                background: 'rgba(255,255,255,0.06)',
+                border: '1px solid var(--glass-border)'
+              }}
+            >
+              <div style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                {countdown > 0 ? `Starting download in ${countdown}...` : 'Starting download...'}
+              </div>
+              {countdown === 0 && (
+                <div style={{ fontSize: '0.95rem', color: 'var(--text-muted)' }}>
+                  If the download did not start,{' '}
+                  <a href={downloadUrl} download={downloadName} style={{ color: 'var(--accent)', fontWeight: 600 }}>
+                    click here
+                  </a>
+                  .
+                </div>
+              )}
+            </div>
           )}
 
           <div style={{ 
