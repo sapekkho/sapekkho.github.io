@@ -1,6 +1,35 @@
+import { useEffect, useState } from 'react';
 import { Download as DownloadIcon, AlertTriangle, Monitor } from 'lucide-react';
 
+const downloadUrl = 'https://github.com/sapekkho/sapekkho/releases/download/v1.1.1/Sapekkho-Setup-1.1.1.exe';
+const downloadName = 'Sapekkho-Setup-1.1.1.exe';
+
 export default function Download() {
+  const [isStarting, setIsStarting] = useState(false);
+  const [countdown, setCountdown] = useState(0);
+
+  useEffect(() => {
+    if (!isStarting || countdown <= 0) return;
+
+    const timer = window.setTimeout(() => {
+      setCountdown((value) => value - 1);
+    }, 1000);
+
+    return () => window.clearTimeout(timer);
+  }, [isStarting, countdown]);
+
+  useEffect(() => {
+    if (!isStarting || countdown > 0) return;
+
+    window.location.assign(downloadUrl);
+  }, [isStarting, countdown]);
+
+  const handleDownloadClick = (event) => {
+    event.preventDefault();
+    setCountdown(3);
+    setIsStarting(true);
+  };
+
   return (
     <div className="container section animate-fade-in">
       <div className="glass-card" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
@@ -36,15 +65,26 @@ export default function Download() {
         </div>
 
         <div style={{ marginTop: '2.5rem' }}>
-          <a 
-            href="https://github.com/sapekkho/sapekkho/releases/download/v1.1.1/Sapekkho-Setup-1.1.1.exe"
-            download="Sapekkho-Setup-1.1.1.exe"
+          <a
+            href={downloadUrl}
+            download={downloadName}
+            onClick={handleDownloadClick}
             className="btn btn-primary"
             style={{ padding: '1rem 2.5rem', fontSize: '1.2rem', marginBottom: '1rem' }}
           >
             <DownloadIcon size={24} />
-            Download for Windows
+            {isStarting ? `Starting download in ${countdown}...` : 'Download for Windows'}
           </a>
+
+          {isStarting && countdown === 0 && (
+            <p style={{ marginTop: '-0.5rem', marginBottom: '1rem', fontSize: '0.95rem', color: 'var(--text-muted)' }}>
+              If the download did not start,{' '}
+              <a href={downloadUrl} download={downloadName} style={{ color: 'var(--accent)', fontWeight: 600 }}>
+                click here
+              </a>
+              .
+            </p>
+          )}
 
           <div style={{ 
             background: 'rgba(234, 179, 8, 0.1)', 
