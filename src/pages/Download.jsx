@@ -18,15 +18,10 @@ export default function Download() {
     return () => window.clearTimeout(timer);
   }, [isStarting, countdown]);
 
-  useEffect(() => {
-    if (!isStarting || countdown > 0) return;
-
-    window.location.assign(downloadUrl);
-  }, [isStarting, countdown]);
-
   const handleDownloadClick = (event) => {
     event.preventDefault();
-    setCountdown(3);
+    window.location.assign(downloadUrl);
+    setCountdown(5);
     setIsStarting(true);
   };
 
@@ -77,29 +72,19 @@ export default function Download() {
               Download for Windows
             </a>
           ) : (
-            <div
-              style={{
-                display: 'inline-flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: '0.65rem',
-                padding: '1rem 1.5rem',
-                marginBottom: '1rem',
-                borderRadius: 'var(--radius-sm)',
-                background: 'rgba(255,255,255,0.06)',
-                border: '1px solid var(--glass-border)'
-              }}
-            >
-              <div style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)' }}>
-                {countdown > 0 ? `Starting download in ${countdown}...` : 'Starting download...'}
-              </div>
-              {countdown === 0 && (
-                <div style={{ fontSize: '0.95rem', color: 'var(--text-muted)' }}>
-                  If the download did not start,{' '}
-                  <a href={downloadUrl} download={downloadName} style={{ color: 'var(--accent)', fontWeight: 600 }}>
-                    click here
-                  </a>
-                  .
+            <div style={{ marginBottom: '1rem', textAlign: 'center' }}>
+              {countdown > 0 ? (
+                <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', margin: 0 }}>
+                  Your download will start in <span style={{ color: '#ffffff', fontWeight: 700 }}>{countdown}</span> seconds...
+                </p>
+              ) : (
+                <div>
+                  <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', margin: '0 0 0.75rem 0' }}>
+                    Your download has started. If it didn't,{' '}
+                    <a href={downloadUrl} download={downloadName} style={{ color: '#60a5fa', fontWeight: 600 }}>
+                      click here
+                    </a>.
+                  </p>
                 </div>
               )}
             </div>
