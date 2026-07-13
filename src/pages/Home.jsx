@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { CheckCircle, ShieldCheck, RefreshCw, LayoutTemplate } from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { CheckCircle, ShieldCheck, RefreshCw, LayoutTemplate, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Home() {
   const features = [
@@ -26,28 +26,24 @@ export default function Home() {
     }
   ];
 
-  const carouselRef = useRef(null);
+  const screenshots = [
+    { src: '/img/1.png', alt: 'Sapekkho Task List' },
+    { src: '/img/2.png', alt: 'Calendar View' },
+    { src: '/img/3.png', alt: 'New Task Dialog' },
+    { src: '/img/4.png', alt: 'Bengali Priority Options' },
+  ];
 
-  useEffect(() => {
-    // Auto-scroll the carousel slowly if wanted, or just let user scroll
-    const el = carouselRef.current;
-    if (!el) return;
-    
-    let scrollInterval;
-    const startScroll = () => {
-      scrollInterval = setInterval(() => {
-        if (el.scrollLeft >= el.scrollWidth - el.clientWidth - 10) {
-          el.scrollLeft = 0;
-        } else {
-          el.scrollBy({ left: 300, behavior: 'smooth' });
-        }
-      }, 4000);
-    };
-    
-    startScroll();
-    
-    return () => clearInterval(scrollInterval);
-  }, []);
+  const [activeScreenshot, setActiveScreenshot] = useState(0);
+
+  const activeShot = screenshots[activeScreenshot];
+
+  const goToPrevious = () => {
+    setActiveScreenshot((prev) => (prev > 0 ? prev - 1 : screenshots.length - 1));
+  };
+
+  const goToNext = () => {
+    setActiveScreenshot((prev) => (prev < screenshots.length - 1 ? prev + 1 : 0));
+  };
 
   return (
     <div>
@@ -94,22 +90,60 @@ export default function Home() {
         <div className="container">
           
           <div className="glass-card animate-fade-in delay-400" style={{ padding: '2rem', background: 'rgba(255,255,255,0.02)' }}>
-            <div className="screenshot-showcase" style={{ marginBottom: '2rem', maxWidth: '800px', margin: '0 auto 2rem' }}>
-              <img src="/img/1.png" alt="Sapekkho Task List" style={{ width: '100%', height: 'auto', display: 'block' }} />
+            <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
+              <h3 style={{ marginBottom: '0.35rem', fontSize: '1.4rem' }}>Explore the Experience</h3>
+              <p style={{ marginBottom: 0, color: 'var(--text-muted)' }}>Swipe through a few highlights from the app interface.</p>
             </div>
-            
-            {/* Horizontal Scroll Carousel for remaining screenshots */}
-            <h4 style={{ marginBottom: '1rem', color: 'var(--text-secondary)', textAlign: 'center' }}>More Views</h4>
-            <div className="screenshot-carousel" ref={carouselRef}>
-              <div className="screenshot-carousel-item">
-                <img src="/img/2.png" alt="Calendar View" />
-              </div>
-              <div className="screenshot-carousel-item">
-                <img src="/img/3.png" alt="New Task Dialog" />
-              </div>
-              <div className="screenshot-carousel-item">
-                <img src="/img/4.png" alt="Bengali Priority Options" />
-              </div>
+
+            <div style={{ position: 'relative', marginBottom: '1.5rem', maxWidth: '900px', margin: '0 auto', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0,0,0,0.35)', border: '1px solid var(--glass-border-light)', background: 'rgba(10,14,26,0.7)' }}>
+              <img 
+                src={activeShot.src} 
+                alt={activeShot.alt} 
+                style={{ width: '100%', height: 'auto', display: 'block', transition: 'opacity 0.3s ease' }} 
+              />
+
+              <button 
+                onClick={goToPrevious}
+                style={{ position: 'absolute', top: '50%', left: '1rem', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.65)', border: '1px solid rgba(255,255,255,0.12)', color: 'white', borderRadius: '999px', width: '46px', height: '46px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(10px)', transition: 'all 0.2s ease' }}
+                aria-label="Previous screenshot"
+              >
+                <ChevronLeft size={22} />
+              </button>
+
+              <button 
+                onClick={goToNext}
+                style={{ position: 'absolute', top: '50%', right: '1rem', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.65)', border: '1px solid rgba(255,255,255,0.12)', color: 'white', borderRadius: '999px', width: '46px', height: '46px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(10px)', transition: 'all 0.2s ease' }}
+                aria-label="Next screenshot"
+              >
+                <ChevronRight size={22} />
+              </button>
+            </div>
+
+            <div style={{ display: 'flex', gap: '0.8rem', justifyContent: 'center', maxWidth: '900px', margin: '0 auto', overflowX: 'auto', padding: '0.35rem 0.2rem 0.2rem' }}>
+              {screenshots.map((shot, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveScreenshot(idx)}
+                  style={{
+                    border: 'none',
+                    background: 'transparent',
+                    padding: 0,
+                    cursor: 'pointer',
+                    opacity: activeScreenshot === idx ? 1 : 0.55,
+                    transform: activeScreenshot === idx ? 'translateY(-2px) scale(1.03)' : 'scale(1)',
+                    transition: 'all 0.25s ease',
+                    borderRadius: '12px',
+                    overflow: 'hidden',
+                    border: activeScreenshot === idx ? '2px solid var(--accent)' : '2px solid transparent',
+                    width: '120px',
+                    flexShrink: 0,
+                    boxShadow: activeScreenshot === idx ? '0 8px 20px rgba(0,0,0,0.25)' : 'none'
+                  }}
+                  aria-label={`View ${shot.alt}`}
+                >
+                  <img src={shot.src} alt={`Thumbnail ${idx + 1}`} style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '10px' }} />
+                </button>
+              ))}
             </div>
           </div>
           
