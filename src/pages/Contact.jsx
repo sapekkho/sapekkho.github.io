@@ -42,7 +42,7 @@ export default function Contact() {
             You can also open an issue or view the project on GitHub.
           </p>
           <a
-            href="https://github.com/xomoash/sapekkho/issues"
+            href="https://github.com/sapekkho/sapekkho/issues"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-secondary"
