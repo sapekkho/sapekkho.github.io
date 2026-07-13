@@ -6,22 +6,22 @@ export default function Home() {
   const features = [
     {
       title: 'Beautifully Organized',
-      description: 'Settings and task lists are logically organized into clean, professional glassmorphism cards for a seamless experience.',
+      description: 'Your tasks and settings are neatly arranged in a clean, easy-to-use design so you can focus on what matters.',
       icon: <LayoutTemplate size={32} />
     },
     {
       title: 'Google Calendar Sync',
-      description: 'One-way sync your tasks to a dedicated calendar to receive native notifications on your phone or smartwatch.',
+      description: 'Send your tasks directly to Google Calendar so you get reminders on your phone and smartwatch automatically.',
       icon: <RefreshCw size={32} />
     },
     {
       title: 'Secure & Local',
-      description: 'Your Google tokens are stored securely on your local device. Sign out anytime to easily revoke access.',
+      description: 'Your Google account details stay safe on your own computer, not on any servers. You can easily sign out at any time.',
       icon: <ShieldCheck size={32} />
     },
     {
       title: 'Always Up to Date',
-      description: 'Built-in auto-updater and manual check buttons ensure you are always running the latest version effortlessly.',
+      description: 'The app updates itself automatically, so you always have the newest features and improvements without any hassle.',
       icon: <CheckCircle size={32} />
     }
   ];
