@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Download as DownloadIcon, AlertTriangle, Monitor } from 'lucide-react';
 
-const downloadUrl = 'https://github.com/sapekkho/sapekkho/releases/download/v1.1.2/Sapekkho-Setup-1.1.2.exe';
-const downloadName = 'Sapekkho-Setup-1.1.2.exe';
+const downloadUrl = 'https://github.com/sapekkho/sapekkho/releases/download/v1.1.3/Sapekkho-Setup-1.1.3.exe';
+const downloadName = 'Sapekkho-Setup-1.1.3.exe';
 
 export default function Download() {
   const [isStarting, setIsStarting] = useState(false);
@@ -40,7 +40,7 @@ export default function Download() {
             style={{ width: '140px', height: '140px', borderRadius: '24px', objectFit: 'cover' }}
           />
           <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '0.75rem', marginBottom: 0 }}>
-            Current Version: v1.1.2
+            Current Version: v1.1.3
           </p>
         </div>
 

@@ -1,5 +1,11 @@
 export const changelogData = [
   {
+    version: "1.1.3",
+    date: "July 2026",
+    notes: "Patch update: Replaced the native update dialog with a beautiful custom-styled React modal. Enhances the UI consistency during app updates.",
+    features: []
+  },
+  {
     version: "1.1.2",
     date: "July 2026",
     notes: "A significant update bringing improvements to the task reminder experience, a sleeker UI for dark mode, and several important bug fixes under the hood.",
