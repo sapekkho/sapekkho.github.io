@@ -59,7 +59,7 @@ export default function Home() {
             <div className="animate-fade-in" style={{ marginBottom: '1.5rem' }}>
               <span className="badge">
                 <img src="/img/logo.png" alt="logo" style={{ width: '16px', height: '16px', borderRadius: '4px' }} />
-                Sapekkho v1.1.1 is out now
+                Sapekkho v1.1.2 is out now
               </span>
             </div>
             
