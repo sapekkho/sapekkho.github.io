@@ -1,5 +1,11 @@
 export const changelogData = [
   {
+    version: "1.1.4",
+    date: "July 2026",
+    notes: "A major update to the background sync and update system. Fixes a critical startup bug and adds full support for silent patch updates in the background without interrupting the user. Settings have been enhanced with confirmation dialogs.",
+    features: []
+  },
+  {
     version: "1.1.3",
     date: "July 2026",
     notes: "Patch update: Replaced the native update dialog with a beautiful custom-styled React modal. Enhances the UI consistency during app updates.",
