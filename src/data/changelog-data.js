@@ -1,5 +1,11 @@
 export const changelogData = [
   {
+    version: "1.1.5",
+    date: "July 2026",
+    notes: "Hotfix: Resolved an issue where the main application would sometimes fail to load correctly upon startup in the packaged version.",
+    features: []
+  },
+  {
     version: "1.1.4",
     date: "July 2026",
     notes: "A major update to the background sync and update system. Fixes a critical startup bug and adds full support for silent patch updates in the background without interrupting the user. Settings have been enhanced with confirmation dialogs.",
