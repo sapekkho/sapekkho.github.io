@@ -2,6 +2,7 @@ export const changelogData = [
   {
     version: "1.1.6",
     date: "July 2026",
+    notes: "",
     features: ["Added Pomodoro Timer, fixed UI bugs, improved PiP window, fixed input focus issue."]
   },
   {
