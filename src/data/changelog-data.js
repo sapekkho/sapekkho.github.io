@@ -37,7 +37,7 @@ export const changelogData = [
   {
     version: "1.1.2",
     date: "July 2026",
-    notes: "A significant update bringing improvements to the task reminder experience, a sleeker UI for dark mode, and several important bug fixes under the hood.",
+    notes: "",
     features: [
       {
         title: "Multiple Reminders Made Easy",
