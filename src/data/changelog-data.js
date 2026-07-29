@@ -37,7 +37,7 @@ export const changelogData = [
   {
     version: "1.1.2",
     date: "July 2026",
-    notes: "",
+    notes: "A significant update bringing improvements to the task reminder experience, a sleeker UI for dark mode, and several important bug fixes under the hood.",
     features: [
       {
         title: "Multiple Reminders Made Easy",
@@ -84,7 +84,7 @@ export const changelogData = [
   {
     version: "1.1.1",
     date: "July 2026",
-    notes: "",
+    notes: "Note on Google Sign In: Since Sapekkho uses the Google Calendar API, Google may show an unverified app warning during sign in. This is expected. Users can continue by clicking Advanced then Go to Sapekkho (unsafe).",
     features: [
       { 
         title: "Redesigned Settings Layout", 
@@ -115,7 +115,7 @@ export const changelogData = [
   {
     version: "1.0.0",
     date: "July 2026",
-    notes: "",
+    notes: "Initial release of Sapekkho.",
     features: [
       {
         title: "Initial Release",
