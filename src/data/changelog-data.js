@@ -1,5 +1,11 @@
 export const changelogData = [
   {
+    version: "1.1.6",
+    date: "July 2026",
+    notes: "Added Pomodoro Timer, fixed UI bugs, improved PiP window, fixed input focus issue.",
+    features: []
+  },
+  {
     version: "1.1.5",
     date: "July 2026",
     notes: "Hotfix: Resolved an issue where the main application would sometimes fail to load correctly upon startup in the packaged version.",
