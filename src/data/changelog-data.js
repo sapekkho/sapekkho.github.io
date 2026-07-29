@@ -3,30 +3,41 @@ export const changelogData = [
     version: "1.1.6",
     date: "July 2026",
     notes: "",
-    features: ["Added Pomodoro Timer, fixed UI bugs, improved PiP window, fixed input focus issue."]
+    features: [
+      { title: "Added Pomodoro Timer", description: "A full Pomodoro timer with customizable work/break sessions and PiP mini-window support." },
+      { title: "Improved PiP Window", description: "Better blur, rounded corners, and smoother popup behavior." },
+      { title: "Bug Fixes", description: "Fixed UI bugs, input focus issues, and sync toggle cursor problems." }
+    ]
   },
   {
     version: "1.1.5",
     date: "July 2026",
-    notes: "Hotfix: Resolved an issue where the main application would sometimes fail to load correctly upon startup in the packaged version.",
-    features: []
+    notes: "",
+    features: [
+      { title: "Startup Hotfix", description: "Resolved an issue where the main application would sometimes fail to load correctly upon startup in the packaged version." }
+    ]
   },
   {
     version: "1.1.4",
     date: "July 2026",
-    notes: "A major update to the background sync and update system. Fixes a critical startup bug and adds full support for silent patch updates in the background without interrupting the user. Settings have been enhanced with confirmation dialogs.",
-    features: []
+    notes: "",
+    features: [
+      { title: "Background Sync & Update System", description: "A major update to the background sync and update system. Fixes a critical startup bug and adds full support for silent patch updates without interrupting the user." },
+      { title: "Enhanced Settings", description: "Settings have been enhanced with confirmation dialogs." }
+    ]
   },
   {
     version: "1.1.3",
     date: "July 2026",
-    notes: "Patch update: Replaced the native update dialog with a beautiful custom-styled React modal. Enhances the UI consistency during app updates.",
-    features: []
+    notes: "",
+    features: [
+      { title: "Custom Update Dialog", description: "Replaced the native update dialog with a beautiful custom-styled React modal. Enhances the UI consistency during app updates." }
+    ]
   },
   {
     version: "1.1.2",
     date: "July 2026",
-    notes: "A significant update bringing improvements to the task reminder experience, a sleeker UI for dark mode, and several important bug fixes under the hood.",
+    notes: "",
     features: [
       {
         title: "Multiple Reminders Made Easy",
@@ -73,7 +84,7 @@ export const changelogData = [
   {
     version: "1.1.1",
     date: "July 2026",
-    notes: "Note on Google Sign In: Since Sapekkho uses the Google Calendar API, Google may show an unverified app warning during sign in. This is expected. Users can continue by clicking Advanced then Go to Sapekkho (unsafe).",
+    notes: "",
     features: [
       { 
         title: "Redesigned Settings Layout", 
@@ -104,7 +115,7 @@ export const changelogData = [
   {
     version: "1.0.0",
     date: "July 2026",
-    notes: "Initial release of Sapekkho.",
+    notes: "",
     features: [
       {
         title: "Initial Release",
